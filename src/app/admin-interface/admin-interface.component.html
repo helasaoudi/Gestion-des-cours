@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<!-- admin-interface.component.html -->
+
+<div class="card">
+    <div class="card-body">
+      <h4 class="box-title">Cours</h4>
+    </div>
+  
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Nom</th>
+          <th>Prix</th>
+          <th>Image</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cours of coursList">
+          <td>{{ cours.id }}</td>
+          <td>{{ cours.title }}</td>
+          <td>{{ cours.price }}</td>
+          <td>
+            <img style="width: 100px" [src]="'assets/images/' + cours.imageUrl" alt="{{ cours.title }}" />
+
+          </td>
+          <td>
+            <a class="btn btn-primary" (click)="navigateToEdit(cours.id)">Edit</a>
+            <button type="button" class="btn btn-danger" (click)="onDelete(cours.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <a class="btn btn-dark" href="add">Create new</a>
+  </div>
+  
+
+</body>
+</html>
